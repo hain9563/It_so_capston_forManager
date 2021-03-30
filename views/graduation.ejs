@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+    .container {
+        margin-top: 120px;
+    }
+</style>
+
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/csv">MUSE</a>
+    <span class="navbar-text">안녕하세요 <%=user_info.name %> 관리자님</span>
+</nav>
+
+<div class="container">
+
+    <table border="1" cellpadding="5" cellspacing="5" class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th width="50px">No</th>
+            <th>학교</th>
+            <th>전공</th>
+            <th>학번</th>
+            <th>전체학점</th>
+            <th>전공학점</th>
+            <th>교양학점</th>
+        </tr>
+        </thead>
+        <% if(data.length){
+        for(var i = 0;i < data.length;i++) { %>
+        <tr>
+            <td><%=(i+1)%></td>
+            <td><%=data[i].school%></td>
+            <td><%=data[i].major%></td>
+            <td><%=data[i].admission_num%></td>
+            <td><%=data[i].required_credit%></td>
+            <td><%=data[i].required_credit_major%></td>
+            <td><%=data[i].required_credit_non_major%></td>
+        </tr>
+        <% }
+        }else{ %>
+        <tr>
+            <td colspan="3">No user</td>
+        </tr>
+        <% } %>
+    </table>
+
+</div>
+</body>
+</html>
+
+
+
